@@ -31,6 +31,10 @@ public class ColliderCounter2 : MonoBehaviour
     }
     void OnTriggerExit(Collider other) {
 
-        playerPointUI.text = "Player 2: " + points++;
+        if (other.gameObject.tag == "Player1") {
+
+            playerPointUI.text = "Player 2: " + points++;
+        }
+        
     }
 }
