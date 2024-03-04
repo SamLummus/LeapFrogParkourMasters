@@ -7,3 +7,9 @@ The changes I made to the game were substantial to the game and fixed many issue
 - Fixed the way the game counts scores so that way the scores don't get counted in twos or a million times.
 - Added better UI that reflects the game state and such.
 - The points being shown accurately reflect who is scoring the point, no longer will player one score for player 2.
+
+March 3, 2024
+The changes that were made was the adding of a manager for player and inventory
+-Added a player manager to manage the stats of the player character.
+-Added an inventory manager to keep track of picked up items (ie coins).
+-Changed the scoring system and interaction of the UI to work through the player manager, calling upon pre-existing methods that increased score.

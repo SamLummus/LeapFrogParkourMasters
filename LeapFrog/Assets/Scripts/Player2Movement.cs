@@ -8,6 +8,9 @@ public class Player2Movement : MonoBehaviour
     public float rotationSpeed = 90;
     public float gravity = -20f;
     public float jumpSpeed = 15.0f;
+    
+    public float pushForce = 3.0f;
+    private ControllerColliderHit contact;
     CharacterController characterController;
     Vector3 moveVelocity;
     Vector3 turnVelocity;
@@ -44,4 +47,14 @@ public class Player2Movement : MonoBehaviour
         characterController.Move(moveVelocity * Time.deltaTime);
         transform.Rotate(turnVelocity * Time.deltaTime);
     }
+
+    // store collision to use in Update
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		contact = hit;
+		
+		Rigidbody body = hit.collider.attachedRigidbody;
+		if (body != null && !body.isKinematic) {
+			body.velocity = hit.moveDirection * pushForce;
+		}
+	}
 }
