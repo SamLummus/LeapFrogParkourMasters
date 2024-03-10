@@ -22,17 +22,9 @@ public class ColliderCounter : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player1")
         {
-
-            if (playerType == PlayerType.Player1)
-            {
-                Managers.Player.IncreaseScore(1);
-            }
-            else
-            {
-                Managers.Player.IncreaseScore(2);
-            }
+            Managers.Player.IncreaseScore(2);
         }
     }
 
